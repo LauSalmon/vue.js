@@ -3,7 +3,7 @@ const app = Vue.createApp({
         return {
             film: [],
             nomDeFilm: '',
-            lis : true,
+            
             }
         },
     methods: {

@@ -21,13 +21,9 @@
                     <button v-on:click="ajouterFilms" type="button" class="btn btn-primary mt-2">Ajouter à votre liste</button>
                 </div>
                 <div class="card-footer text-muted">
-                    <h5 v-if ="list">Ma Liste</h5>
+                    <h5 v-if ="film.length">{{nomDeFilm}}</h5>
                     <h5 v-else>Pas encore de films dans votre liste ?</h5>
-                    <ul>
-                        <!-- la directive v-for, sur la <li> va permettre de répéter l'affichage de <li> autant de fois que des data sont présentes dans le tableau tasks (côté JS)  -->
-                        <!-- cette syntaxe en double accolades {{uneTask}} permet d'afficher une variable(JS) directement -->
-                        <li v-for="unFilm in film">{{unFilm}}</li>
-                    </ul>
+
                     
                 </div>
             </div>
