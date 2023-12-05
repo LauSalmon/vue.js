@@ -4,7 +4,7 @@ const app = Vue.createApp({
         article: '',
         mesArticles: [],
         hidden: false,
-        afficher: true
+        afficher: true,
         };
     },
     methods: {
@@ -21,6 +21,6 @@ const app = Vue.createApp({
             this.hidden = !this.hidden;
             this.afficher = !this.afficher;
         },
-    },
+
     });
     app.mount('#monApp');
