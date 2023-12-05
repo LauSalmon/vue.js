@@ -12,21 +12,26 @@
   <body>
     <h1 class="text-center">Exo if else <h1>
         <div id="monApp">
-            <div class="card text-center">
-                <div class="card-body">
-                    <p class="card-text">WatchList (Films à voir)</p>
-                    <!--la directive v-model, sur l'input va permettre de le Connecter à une variable JS -->
-                    <input v-model="nomDeFilm" class="form-control" type="text" />
-                    <!-- la directive v-on:click, sur le button permet de réagir au click et exécuter la fonction ajouterTask côté JS -->
-                    <button v-on:click="ajouterFilms" type="button" class="btn btn-primary mt-2">Ajouter à votre liste</button>
-                </div>
-                <div class="card-footer text-muted">
-                    <h5 v-if="film.length">{{nomDeFilm}}</h5>
-                    <h5 v-else>Pas encore de films dans votre liste ?</h5>
-
-                    
-                </div>
+            <div id="monApp">
+                <div class="m-3">
+                <h2>WatchList 🎬 (Films à voir)</h2>
+                <input v-model="nomFilm" type="text" class="form-control" />
+                <button @click="ajouterFilm" class="btn btn-primary mt-3">
+                    Ajouter à votre Liste
+                </button>
+                <hr />
+                <h2 v-if="mesFilms.length">{{nomFilm}}</h2>
+                <!-- <h2 v-if="mesFilms.length">{{mesFilms}}</h2> -->
+                <!-- <h2 v-if="mesFilms.length !== 0">{{nomFilm}}</h2> -->
+                <p v-else>Pas Encore de Films dans votre Liste ?</p>
+                <ul>
+                    <!-- la directive v-for, sur la <li> va permettre de répéter l'affichage de <li> autant de fois que des data sont présentes dans le tableau tasks (côté JS)  -->
+                    <!-- cette syntaxe en double accolades {{uneTask}} permet d'afficher une variable(JS) directement -->
+                    <li v-for="(element, key) in mesFilms">{{key}}-{{element}}</li>
+                </ul>
+                </div>  
             </div>
+            
         </div>
  
     <script src="https://unpkg.com/vue@next"></script>

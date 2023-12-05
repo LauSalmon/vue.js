@@ -9,7 +9,7 @@ const app = Vue.createApp({
     methods: {
         ajouterFilms() {
             this.film.push(this.nomDeFilm);
-            this.nomDeFilm = '';
+            //this.nomDeFilm = '';
             }
     }
 
