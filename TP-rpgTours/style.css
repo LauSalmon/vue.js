@@ -30,6 +30,6 @@ img {
     font-size: 50px;
  }
 
- .healPlayer {
-    background-color : rgb(86, 218, 232);
- }
+ .soigner_hero{
+    background-color: purple;
+}
