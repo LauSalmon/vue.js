@@ -11,23 +11,27 @@
 
   </head>
   <body id="monApp">
-    <h1 class="text-center">TP : RPG tour par tour <h1>
+    <h1 class="text-center">TP : RPG tour par tour </h1>
         <div class = "container mt-4 mb-4 p-3 d-flex justify-content-center text-center" >
-            <div id="hero" class="col-6">
+            <div id="player" class="col-6">
               <div>
                   <img src="./bob-unscreen.gif" alt="GIF de Bob Razowski">
               </div>
               <div>
                   <p class="name">{{namePlayer}}</p>
-                  <p class="pv">{{lifePlayer}}</p>
+                  <p class="pv">Point de vie : {{lifePlayer}}</p>
+                  <p class="attack">Point d'attaque : 5</p>
+                  <p class="attack">Point d'attaque spéciale : 15</p>
 
-                  <button class="btn btn-primary mt-3" @click="attackPlayer(), attackEnnemy()">Attaque</button>
+                  <button class="btn btn-secondary mt-3" @click="attackPlayer()" :disabled = "stopGame">Attaque</button>
 
-                  <button class="btn btn-primary mt-3" @click="healPlayer(), attackEnnemy()">Se soigner</button>
+                  <button class="btn btn-success mt-3" @click="healPlayer()" :disabled = "stopGame">Se soigner</button>
 
-                  <button v-if="currentround%3 === 0" class="btn btn-primary mt-3" @click="specialAttack(), attackEnnemy()">Attaque spéciale</button>
+                  <button v-if="currentround%3 === 0" class="btn btn-info mt-3" @click="specialAttack(), flash()" :disabled = "stopGame" :class="{healPlayer : color}">Attaque spéciale</button>
 
                   <button v-else class="btn btn-primary mt-3">Attaque spéciale</button>
+
+                  <button class="btn btn-danger mt-3" :disabled = "stopGame" @click="stop()">Abandonner</button>
               </div>
           </div>
 
@@ -37,12 +41,14 @@
               </div>
               <div>
                   <p class="name">{{nameEnnemy}}</p>
-                  <p class="pv">{{lifeEnnemy}}</p>
+                  <p class="pv">Point de vie : {{lifeEnnemy}}</p>
+                  <p class="attack">Point d'attaque : 8</p>
               </div>
           </div>
           
         </div>
-      <p>Round : {{currentround}}</p>
+      <p id="round" class="text-center">Round : {{currentround}}</p>
+      <p id="msg" class="text-center">{{messageResult}}</p>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="app.js"></script>
     <!-- Bootstrap JavaScript Libraries -->

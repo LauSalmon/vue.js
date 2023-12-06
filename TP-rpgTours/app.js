@@ -6,33 +6,65 @@ const app = Vue.createApp({
             namePlayer: "Bob Razowski",
             nameEnnemy: "Xemnas",
             currentround: 0,
+            stopGame: false,
+            messageResult:"",
+            color: false,
         };
     },
     methods: {
         attackEnnemy () {
-            this.lifePlayer = this.lifePlayer - 10;
+            this.lifePlayer = this.lifePlayer - 8;
         },
         attackPlayer () {
-            this.lifeEnnemy = this.lifeEnnemy - 8;
+            this.lifeEnnemy = this.lifeEnnemy - 5;
+            this.attackEnnemy();
             this.currentround ++;
-            //return this.attackEnnemy();
+            this.result();
         },
 
         healPlayer () {
-            if (this.lifePlayer<=100){
-                this.lifePlayer += 8;
+            if (this.lifePlayer >= 98){
+                this.lifePlayer = 100;
+                this.flash();
+            } else {
+                this.lifePlayer += 10;
                 this.currentround ++;
+                this.attackEnnemy();
+                this.flash();
             }
-            
         },
+        flash() {
+                this.color = !this.color;
+                setTimeout(() => {
+                    this.color = false;
+                }, 250)
+            },
         specialAttack () {
                 this.lifeEnnemy = this.lifeEnnemy - 15;
+                this.attackEnnemy();
                 this.currentround ++;
+                this.result();
             },
-        },
+        stop () {
+            this.stopGame = true;
+            this.messageResult = "Bob Razowski a abandonné !"
+        }
+    },
 
     computed: {
-
-        },
+        result () {
+            if (this.lifePlayer <= 0 && this.lifeEnnemy <= 0){
+                this.messageResult = "AH ... c'est dommage c'est une égalité ...";
+                this.stopGame = true;
+            } else if (this.lifeEnnemy <= 0){
+                this.messageResult = "VICTOIRE !!! Xemnas a perdu la bataille ! Bob Razowski a gagné !!";
+                this.stopGame = true;
+            } else if (this.lifePlayer <= 0){
+                this.messageResult = "PERDU !!! Bob Razowski a perdu la bataille ... Xemnas a gagné ...";
+                this.stopGame = true;
+            }   
+        }
+    },
 });
 app.mount('#monApp');
+

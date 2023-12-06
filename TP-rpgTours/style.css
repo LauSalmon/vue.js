@@ -1,7 +1,35 @@
 body {
-    background-color : rgb(165, 201, 189);
+    background-color : rgb(231, 193, 97)
+}
+h1 {
+    text-decoration: underline;
+    color: purple;
 }
 
 img {
     max-height: 200px;
 }
+.pv {
+    font-size: 30px;
+}
+.name {
+    font-weight: bold;
+    font-size: 50px;
+}
+ button {
+    margin: 5px;
+ }
+
+ #round {
+    color : purple;
+    font-size: 30px;
+    text-decoration: underline;
+ }
+
+ #msg {
+    font-size: 50px;
+ }
+
+ .healPlayer {
+    background-color : rgb(86, 218, 232);
+ }
