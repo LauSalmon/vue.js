@@ -35,8 +35,8 @@
                     <button v-if="afficher" class="btn btn-primary mt-3" @click="cache()">Masquer la liste</button>
 
                     <button v-else class="btn btn-primary mt-3" @click="cache()">Afficher la liste</button>
-
-                    <button class="btn btn-primary mt-3" @click="modif()">{{bouton}}</button>
+                    <!-- bouton fait plus simplement (et mieux) -->
+                    <button class="btn btn-primary mt-3" @click="cache()">{{modif}}</button>
                     </div>
                 </div>
             </div>

@@ -21,6 +21,14 @@ const app = Vue.createApp({
             this.hidden = !this.hidden;
             this.afficher = !this.afficher;
         },
+
+    },
+    //Pour le bouton plus simple (le 2ème)
+    computed: {
+        modif (){
+            return this.afficher ? 'Masquer la liste' : 'Afficher la liste';
     }
+
+        }
 });
 app.mount('#monApp');
