@@ -27,7 +27,7 @@
 
                   <button class="btn btn-success mt-3" @click="healPlayer()" :disabled = "stopGame">Se soigner</button>
 
-                  <button v-if="currentround%3 === 0" class="btn btn-info mt-3" @click="specialAttack(), flash()" :disabled = "stopGame">Attaque spéciale</button>
+                  <button v-if="currentround%3 === 0" class="btn btn-info mt-3" @click="specialAttack()" :disabled = "stopGame">Attaque spéciale</button>
 
                   <button v-else class="btn btn-primary mt-3">Attaque spéciale</button>
 
