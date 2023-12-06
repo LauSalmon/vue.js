@@ -26,7 +26,7 @@ const app = Vue.createApp({
     //Pour le bouton plus simple (le 2ème)
     computed: {
         modif (){
-            return this.afficher ? 'Masquer la liste' : 'Afficher la liste';
+            return this.afficher ? 'Masquer la liste 2' : 'Afficher la liste 2';
     }
 
         }
