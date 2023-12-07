@@ -6,13 +6,13 @@ const app = Vue.createApp({
                 ami1 = {
                     id : 1,
                     name : "Coco",
-                    phone : "0647786222",
+                    phone : "06.47.78.62.22",
                     mail : "coco@lasticot.fr",
                 },
                 ami2 = {
                     id : 2,
                     name : "Janine",
-                    phone : "0654896214",
+                    phone : "06.54.89.62.14",
                     mail : "janine@jaja.fr",
                 }
                  
