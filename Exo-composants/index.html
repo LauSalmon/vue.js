@@ -17,30 +17,33 @@
         </style>
   </head>
   <body>
-    <h1 class="text-center">TP : Conditional / List Rendering </h1>
+    <h1 class="text-center">Exo : Composants </h1>
         <div>
             <div id="monApp">
                 <div class="container">
-                    <div class="m-3">
-                    <h2>La liste des courses </h2>
-                    <input v-model="article" type="text" class="form-control" />
-                    <button @click="ajouterArticle()" class="btn btn-success mt-3">
-                        Ajouter à votre liste de courses
-                    </button>
-                    <hr />
-                    <h2 v-if="mesArticles.length === 0">Il n'y a aucun articles dans votre liste</h2>
-                    <ul v-else :class="{maClasseHidden: hidden}">
-                        <li v-for="(unArticle,unIndex) in mesArticles" v-on:click="supprimerArticle(unIndex)">{{unIndex}} - {{unArticle}}</li>
-                    </ul>
-                    <button v-if="afficher" class="btn btn-primary mt-3" @click="cache()">Masquer la liste</button>
-
-                    <button v-else class="btn btn-primary mt-3" @click="cache()">Afficher la liste</button>
-                    <!-- bouton fait plus simplement (et mieux) -->
-                    <button class="btn btn-primary mt-3" @click="cache()">{{modif}}</button>
+                    <nav class="navbar bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">
+                        <img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                        Les Copains D'Abord
+                        </a>
                     </div>
+                    </nav>
+                    <section id="app">
+                    <div class="card border-dark mb-3" v-for ="unAmi in lesAmis" v-bind:key="lesAmis.id">
+                        <div class="card-header">{{unAmi.name}}</div>
+                        <div class="card-body text-dark">
+                        <button  type="button" class="btn btn-dark mb-1" @click="toggleDetails()">{{modif}}</button>
+                        <ul  class="list-group list-group-flush" v-if="detailsVisible">
+                            <li class="list-group-item">{{unAmi.phone}}</li>
+                            <li class="list-group-item">{{unAmi.mail}}</li>                          
+                        </ul>
+                       
+                        </div>
+                    </div>
+                </section>
                 </div>
             </div>
-            
         </div>
  
     <script src="https://unpkg.com/vue@next"></script>
